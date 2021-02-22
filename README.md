@@ -2,9 +2,10 @@
 Este repositório guarda os trabalhos e projetos da disciplina.
 
 # Desenvolvedor
-## Felipe Oliveira Boacnin
+- Felipe Oliveira Boacnin
 
 # Linguagens e Frameworks:
 - Pthyon
 - C
 - Java
+- Dart
