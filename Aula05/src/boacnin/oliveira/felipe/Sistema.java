@@ -1,4 +1,5 @@
 package boacnin.oliveira.felipe;
+
 import java.util.Scanner;
 
 public class Sistema {
@@ -9,8 +10,7 @@ public class Sistema {
     public Sistema() {
         this.continuarExecucao = true;
         this.scanner = new Scanner(System.in);
-        this.conta = new Conta( 1236, 1000, "Toad");
-
+        this.conta = new Conta(1236, 1000, "Toad");
     }
 
     public void executar(){
@@ -20,7 +20,8 @@ public class Sistema {
             avaliarOpcao(opcao);
         }
     }
-    private void avaliarOpcao(int opcao){
+
+    private void avaliarOpcao(int opcao) {
         switch (opcao){
             case 0:
                 System.out.println("Obrigado por ter utilizado nosso sistema!");
@@ -36,32 +37,34 @@ public class Sistema {
                 System.out.println("Operação realizada com sucesso!");
                 break;
             case 3:
-                System.out.println("Informe o valor");
+                System.out.println("Informe o valor:");
                 double valorParaRetirar = scanner.nextDouble();
                 if(this.conta.sacar(valorParaRetirar)){
-                    System.out.println("Operação realizaqda com sucesso!");
-                }else{
+                    System.out.println("Operação realizada com sucesso!");
+                } else {
                     System.out.println("Operação falhou! Verificar saldo!");
                 }
             case 5:
-                System.out.println("Nome do tìtulo:");
+                System.out.println("Nome do título:");
                 String nomeTitulo = scanner.next();
                 System.out.println("Informe o valor do título:");
                 double valorTitulo = scanner.nextDouble();
-                System.out.println("informe o valor do juros por dia:");
+                System.out.println("Informe o valor do juros ao dia:");
                 double valorJurosTitulo = scanner.nextDouble();
                 System.out.println("Informe a data de vencimento (aaaa-mm-dd):");
                 String dataValidade = scanner.next();
-                Titulo titulo =new Titulo(valorTitulo,valorJurosTitulo,nomeTitulo, dataValidade);
-                if
+                Título titulo = new Título(valorTitulo,valorJurosTitulo,nomeTitulo, dataValidade);
+                if(this.conta.sacar(titulo.getTotalPagamento())){
+                    System.out.println("Operação realizada com sucesso!");
+                } else {
+                    System.out.println("Falha na operação!");
+                }
+                break;
             default:
                 System.out.println("Funcionalidade ainda não implementada");
                 break;
-
-
         }
     }
-
 
     private void exibirMenu() {
         System.out.println("Bem vindo ao MauaBank");

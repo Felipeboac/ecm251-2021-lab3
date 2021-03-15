@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-
 public class Título {
     private double valor;
     private double jurosPorDia;
@@ -21,18 +20,17 @@ public class Título {
     public double getTotalPagamento(){
         if(!estaVencida()){
             return this.valor;
-        }else{
+        } else {
             return calcularPagamentoComJuros();
         }
     }
 
-    private boolean calcularPagamentoComJuros(){
+    private double calcularPagamentoComJuros() {
         return this.valor + this.valor * this.jurosPorDia * dataParaPagamento.until(LocalDate.now(), DAYS);
     }
 
-    private boolean estaVencida(){
+    private boolean estaVencida() {
         return LocalDate.now().isAfter(dataParaPagamento);
     }
-
 }
 
